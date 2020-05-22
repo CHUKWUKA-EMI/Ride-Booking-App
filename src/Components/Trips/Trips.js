@@ -1,9 +1,12 @@
 import React from "react";
+import "./Trips.css";
+import Modal from "../Modal/modal";
 
 const Trips = (props) => {
 	return (
-		<div>
-			<h1>TRIPS</h1>
+		<div className="trips-page">
+			<h1>Welcome to JusticeRides. You can book your ride here!</h1>
+			<Modal />
 		</div>
 	);
 };

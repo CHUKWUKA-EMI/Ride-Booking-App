@@ -2,3 +2,20 @@ body {
 	margin: 0;
 	background-color: white;
 }
+
+.btn {
+	height: 40px;
+	width: 10rem;
+	border-radius: 0.5rem;
+	border: 1px solid white;
+	font-size: large;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 700;
+	background-color: #2b2ba7;
+	color: white;
+}
+.btn:hover {
+	background-color: #0a36f7;
+	color: white;
+	cursor: pointer;
+}

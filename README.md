@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the Frontend of my Ride Booking API <br />
+It has all the core functionalities of a standard Ride Booking Application.
 
 ## Available Scripts
 
