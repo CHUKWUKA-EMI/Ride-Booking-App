@@ -3,8 +3,8 @@ import "./ModalItems.css";
 
 const ModalItems = (props) => {
 	return (
-		<div className="modal-Items">
-			<span className="item-features">
+		<div key={props.id} className="modal-Items">
+			<span key={props.id} className="item-features">
 				<label style={{ marginLeft: "3%" }}>{props.direction}</label>
 				<label>{props.duration}</label>
 				<label>{props.vehicle}</label>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "../Context/context";
 import "./auth.css";
 
 const Auth = (props) => {
@@ -7,9 +8,11 @@ const Auth = (props) => {
 	const [userPassword, setUserPassword] = useState("");
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
 
+	const context = useContext(AuthContext);
+
 	const submitHandler = () => {
 		if (
-			userName.trim().length === 0 ||
+			// userName.trim().length === 0 ||
 			userEmail.trim().length === 0 ||
 			userPassword.trim().length === 0
 		) {
@@ -56,8 +59,15 @@ const Auth = (props) => {
 				}
 				return res.json();
 			})
-			.then((data) => {
-				console.log(data);
+			.then((resData) => {
+				console.log(resData);
+				if (isLoggedIn) {
+					context.login(
+						resData.data.login.token,
+						resData.data.login.userId,
+						resData.data.login.tokenExpiration
+					);
+				}
 			})
 			.catch((err) => {
 				console.log(err);
