@@ -1,9 +1,21 @@
 .modal-Items {
 	width: 80%;
 	margin-left: 10%;
-	margin-top: 0.5%;
+	margin-top: 1%;
 	height: 15%;
 	background: #bdb6b6;
 	border-radius: 14px;
 	margin-bottom: 10px;
+}
+
+.item-features label {
+	font-family: "Courier New", Courier, monospace;
+	font-size: larger;
+	font-style: oblique;
+	font-weight: 900;
+	margin-left: 6%;
+	margin-bottom: 5px;
+	align-items: center;
+	padding-right: 8%;
+	color: #0c0c5c;
 }

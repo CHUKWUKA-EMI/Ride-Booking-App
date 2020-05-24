@@ -8,6 +8,7 @@
 	color: white;
 	height: 3rem;
 	width: 100%;
+
 	padding: 1rem 0;
 	align-items: center;
 }
@@ -57,12 +58,12 @@
 	margin: 0.5rem;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1061px) {
 	.Nav {
 		flex-wrap: wrap;
 		height: 5rem;
 	}
 	.Nav ul {
-		flex-wrap: wrap;
+		margin-left: 25rem;
 	}
 }
