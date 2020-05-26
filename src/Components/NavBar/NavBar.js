@@ -26,7 +26,7 @@ const NavBar = (props) => {
 						</li>
 					)}
 					<li onClick={props.onLogout}>
-						<NavLink to="/">Logout</NavLink>
+						<NavLink to="/auth">Logout</NavLink>
 					</li>
 				</ul>
 			</div>

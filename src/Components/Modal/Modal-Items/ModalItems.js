@@ -8,13 +8,16 @@ const ModalItems = (props) => {
 				<label style={{ marginLeft: "3%" }}>{props.direction}</label>
 				<label>{props.duration}</label>
 				<label>{props.vehicle}</label>
-				<label>{props.cost}</label>
+				<label>${props.cost}</label>
 			</span>
 
-			<div style={{ width: "100px", marginLeft: "75%" }}>
-				<button
-					className="btn"
-					style={{ marginTop: "20px", marginLeft: "83%" }}>
+			<div>
+				<label>
+					{" "}
+					select
+					<input type="checkbox" id={props.id} onClick={props.onCheck} />
+				</label>
+				<button className="btn" onClick={props.onSelect.bind(props.id)}>
 					Book
 				</button>
 			</div>

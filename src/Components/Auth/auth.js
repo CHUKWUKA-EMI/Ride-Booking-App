@@ -1,22 +1,20 @@
 import React, { useState, useContext } from "react";
 import AuthContext from "../Context/context";
+import makeRequest from ".././../Utils/index";
 import "./auth.css";
 
 const Auth = (props) => {
 	const [userName, setUserName] = useState("");
 	const [userEmail, setUserEmail] = useState("");
 	const [userPassword, setUserPassword] = useState("");
-	const [isLoggedIn, setIsLoggedIn] = useState(true);
+	const [isLogIn, setIsLoggedIn] = useState(true);
+	const [errorMessage, setErrorMessage] = useState("");
 
 	const context = useContext(AuthContext);
 
-	const submitHandler = () => {
-		if (
-			// userName.trim().length === 0 ||
-			userEmail.trim().length === 0 ||
-			userPassword.trim().length === 0
-		) {
-			return;
+	const submitHandler = async () => {
+		if (userEmail.trim().length === 0 || userPassword.trim().length === 0) {
+			setErrorMessage("Input field cannot be Empty!");
 		}
 
 		let requestBody = {
@@ -31,7 +29,7 @@ const Auth = (props) => {
 		`,
 		};
 
-		if (!isLoggedIn) {
+		if (!isLogIn) {
 			requestBody = {
 				query: `
 		   mutation{
@@ -46,22 +44,10 @@ const Auth = (props) => {
 			};
 		}
 
-		fetch("https://ride-booking-app.herokuapp.com/graphql", {
-			method: "post",
-			body: JSON.stringify(requestBody),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		})
-			.then((res) => {
-				if (res.status !== 200 && res.status !== 201) {
-					throw new Error("Authentication Failed");
-				}
-				return res.json();
-			})
+		const result = await makeRequest({ data: requestBody })
 			.then((resData) => {
 				console.log(resData);
-				if (isLoggedIn) {
+				if (isLogIn) {
 					context.login(
 						resData.data.login.token,
 						resData.data.login.userId,
@@ -70,18 +56,20 @@ const Auth = (props) => {
 				}
 			})
 			.catch((err) => {
-				console.log(err);
+				setErrorMessage(err.message);
+				return;
 			});
 	};
 	return (
 		<div className="form-class">
-			<h1>{isLoggedIn ? "Login" : "Sign Up"}</h1>
+			<h1>{isLogIn ? "Login" : "Sign Up"}</h1>
 			<form
 				onSubmit={(e) => {
 					e.preventDefault();
 					submitHandler();
 				}}>
-				{!isLoggedIn && (
+				{errorMessage && <h3 className="err">{errorMessage}</h3>}
+				{!isLogIn && (
 					<input
 						type="text"
 						id="username"
@@ -110,13 +98,13 @@ const Auth = (props) => {
 					onChange={(e) => setUserPassword(e.target.value)}
 				/>
 				<br />
-				<button type="submit">{isLoggedIn ? "Login" : "Sign Up"}</button>
+				<button type="submit">{isLogIn ? "Login" : "Sign Up"}</button>
 				<p>
-					{!isLoggedIn
+					{!isLogIn
 						? "Already have an account?"
 						: "You don't have an account yet?"}{" "}
-					<a onClick={(e) => setIsLoggedIn(!isLoggedIn)}>
-						{!isLoggedIn ? "Login" : "Sign Up"}
+					<a onClick={(e) => setIsLoggedIn(!isLogIn)}>
+						{!isLogIn ? "Login" : "Sign Up"}
 					</a>
 				</p>
 			</form>

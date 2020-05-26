@@ -14,12 +14,33 @@ function App() {
 	const login = (token, userId, tokenExpiration) => {
 		setToken(token);
 		setUserId(userId);
+		localStorage.setItem("token", token);
 	};
 
 	const logout = () => {
 		setToken(null);
 		setUserId(null);
+		localStorage.setItem("token", "");
 	};
+	const PrivateRoute = ({ component: Component, ...rest }) => (
+		<Route
+			{...rest}
+			render={(props) =>
+				token ? (
+					<Component {...props} />
+				) : (
+					<Redirect
+						to={{
+							pathname: "/auth",
+
+							state: { from: props.location },
+						}}
+					/>
+				)
+			}
+		/>
+	);
+
 	return (
 		<BrowserRouter>
 			<React.Fragment>
@@ -32,12 +53,11 @@ function App() {
 					}}>
 					<NavBar onLogout={logout} />
 					<Switch>
-						<Route path="/auth" component={Auth} />
-						{token && <Route path="/bookings" component={Bookings} />}
+						{!token && <Route path="/auth" component={Auth} />}
+						<PrivateRoute path="/bookings" component={Bookings} />
 						<Route path="/trips" component={Trips} />
-						{!token && <Redirect from="/bookings" to="/auth" />}
-
-						{!token && <Redirect from="/" to="/auth" />}
+						<Redirect from="/" to="/auth" />}
+						{token && <Redirect from="/auth" to="/bookings" />}
 					</Switch>
 				</AuthContext.Provider>
 			</React.Fragment>

@@ -8,11 +8,35 @@
 	margin-bottom: 10px;
 }
 
+.modal-Items div {
+	margin-top: 5px;
+	width: 180px;
+	margin-left: 75%;
+	height: 60px;
+}
+.modal-Items div button {
+	margin-top: 0;
+	margin-left: 90%;
+	height: 30px;
+	width: 70px;
+	margin-bottom: 5px;
+}
+.modal-Items div label {
+	color: #120741;
+	font-size: 17px;
+}
+.modal-Items div label input {
+	margin-top: 2%;
+	width: 15px;
+	height: 20px;
+}
+
 .item-features label {
 	font-family: "Courier New", Courier, monospace;
 	font-size: larger;
 	font-style: oblique;
 	font-weight: 900;
+	width: 630px;
 	margin-left: 6%;
 	margin-bottom: 5px;
 	align-items: center;
