@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./modal.css";
 import ModalItems from "./Modal-Items/ModalItems";
+import fetchRoutes from "../../Helpers/index";
 
-const Modal = () => {
+const Modal = (props) => {
+	const [routes, setRoutes] = useState([]);
+
+	useEffect(() => {
+		async function getRoutes() {
+			const route = await fetchRoutes();
+			setRoutes(route);
+		}
+		getRoutes();
+	}, []);
+
 	return (
 		<div className="modal-class">
 			<p>Available Routes</p>
@@ -12,13 +23,20 @@ const Modal = () => {
 				<label>Vehicle</label>
 				<label>Cost</label>
 			</span>
-			<ModalItems />
-			<ModalItems />
-			<ModalItems />
-			<ModalItems />
-			<ModalItems />
+			{routes.map((item) => {
+				return (
+					<ModalItems
+						id={item.id}
+						direction={item.direction}
+						duration={item.duration}
+						vehicle={item.vehicle}
+						cost={item.cost}
+						onSelect={props.onBook}
+						onCheck={props.onTake.bind(this, item.id)}
+					/>
+				);
+			})}
 		</div>
 	);
 };
-
 export default Modal;

@@ -1,13 +1,23 @@
 import React from "react";
 import "./ModalItems.css";
 
-const ModalItems = () => {
+const ModalItems = (props) => {
 	return (
-		<div className="modal-Items">
+		<div key={props.id} className="modal-Items">
+			<span key={props.id} className="item-features">
+				<label style={{ marginLeft: "3%" }}>{props.direction}</label>
+				<label>{props.duration}</label>
+				<label>{props.vehicle}</label>
+				<label>${props.cost}</label>
+			</span>
+
 			<div>
-				<button
-					className="btn"
-					style={{ marginTop: "40PX", marginLeft: "83%" }}>
+				<label>
+					{" "}
+					select
+					<input type="checkbox" id={props.id} onClick={props.onCheck} />
+				</label>
+				<button className="btn" onClick={props.onSelect.bind(props.id)}>
 					Book
 				</button>
 			</div>

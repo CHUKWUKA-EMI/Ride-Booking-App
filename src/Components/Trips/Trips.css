@@ -18,3 +18,17 @@ body {
 	font-size: 25px;
 	color: #2b2ba7;
 }
+.err {
+	color: #ee1212;
+	background-color: #78ca8b;
+	text-align: center;
+	padding-top: 10px;
+	margin-bottom: 0;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 17px;
+	border: 2px solid #e92828;
+	font-weight: 600;
+	width: 50rem;
+	height: 3rem;
+	border-radius: 0.5rem;
+}
