@@ -54,7 +54,7 @@ function App() {
 					<NavBar onLogout={logout} />
 					<Switch>
 						{!token && <Route path="/auth" component={Auth} />}
-						<PrivateRoute path="/bookings" component={Bookings} />
+						<Route path="/bookings" component={Bookings} />
 						<Route path="/trips" component={Trips} />
 						<Redirect from="/" to="/auth" />}
 						{token && <Redirect from="/auth" to="/bookings" />}

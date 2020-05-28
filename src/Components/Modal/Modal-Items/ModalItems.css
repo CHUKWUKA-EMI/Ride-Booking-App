@@ -1,5 +1,5 @@
 .modal-Items {
-	width: 80%;
+	width: 17rem;
 	margin-left: 10%;
 	margin-top: 1%;
 	height: 15%;
@@ -9,37 +9,116 @@
 }
 
 .modal-Items div {
-	margin-top: 5px;
+	padding-top: 0;
 	width: 180px;
-	margin-left: 75%;
+	margin-left: 3rem;
 	height: 60px;
 }
 .modal-Items div button {
-	margin-top: 0;
-	margin-left: 90%;
-	height: 30px;
-	width: 70px;
+	margin-top: 0rem;
+	margin-left: 10rem;
+	height: 20px;
+	font-size: 10px;
+	width: 50px;
 	margin-bottom: 5px;
 }
 .modal-Items div label {
 	color: #120741;
-	font-size: 17px;
+	font-size: 15px;
+	font-weight: 500;
 }
 .modal-Items div label input {
-	margin-top: 2%;
+	margin-top: 0.5rem;
 	width: 15px;
 	height: 20px;
 }
 
 .item-features label {
-	font-family: "Courier New", Courier, monospace;
-	font-size: larger;
-	font-style: oblique;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-size: 8.5px;
 	font-weight: 900;
-	width: 630px;
-	margin-left: 6%;
+	width: 100%;
+	margin-left: 0.7rem;
 	margin-bottom: 5px;
 	align-items: center;
 	padding-right: 8%;
 	color: #0c0c5c;
+}
+
+@media (min-width: 768px) {
+	.modal-Items {
+		width: 45rem;
+		margin-left: 2.5rem;
+		height: 10rem;
+	}
+	.modal-Items div {
+		width: 20rem;
+		margin-top: 4rem;
+		margin-left: 15rem;
+		height: 11rem;
+	}
+	.modal-Items div button {
+		height: 2rem;
+		width: 10rem;
+		padding-top: 0;
+		margin-top: 0rem;
+		margin-left: 20rem;
+		font-size: 25px;
+	}
+	.modal-Items div label {
+		font-size: 28px;
+		margin-left: 0;
+	}
+	.modal-Items div label input {
+		height: 25px;
+		width: 20px;
+	}
+	.item-features label {
+		font-size: 25px;
+		margin-left: 1rem;
+	}
+}
+@media (min-width: 1280px) {
+	.modal-Items {
+		height: 5.9rem;
+		width: 60rem;
+	}
+	.modal-Items div {
+		width: 20rem;
+		height: 5rem;
+		margin-top: 0rem;
+		margin-left: 30rem;
+	}
+	.modal-Items div button {
+		margin-top: 0;
+		height: 1.5rem;
+		width: 7rem;
+		font-size: 17px;
+		margin-left: 23rem;
+	}
+	.item-features label {
+		margin-left: 2.3rem;
+	}
+}
+@media (min-width: 1440px) {
+	.modal-Items {
+		width: 65rem;
+		height: 5.38rem;
+		margin-left: 5rem;
+	}
+	.modal-Items div {
+		margin-top: 0;
+		margin-left: 35rem;
+		height: 3.5rem;
+	}
+	.modal-Items div button {
+		height: 1.4rem;
+		margin-top: 0rem;
+	}
+	.modal-Items div label {
+		font-size: 20px;
+	}
+	.item-features label {
+		margin-left: 5rem;
+	}
 }
