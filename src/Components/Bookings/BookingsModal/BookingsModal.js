@@ -3,42 +3,40 @@ import "./BookingsModal.css";
 
 const BookingsModal = (props) => {
 	return (
-		<div className="booking-modal">
+		<div key={props.bookingId} className="booking-modal">
+			<div>
+				<span>
+					<label>BookingID: {props.bookingId}</label>
+				</span>
+			</div>
+			<div>
+				<span>
+					<label>UserID: {props.userId}</label>
+				</span>
+			</div>
+			<div>
+				<span>
+					<label>Trip: {props.direction}</label>
+				</span>
+			</div>
+			<div>
+				<span>
+					<label>Date: {props.date}</label>
+				</span>
+			</div>
 			<span>
-				<label>BookingID:{props.bookingId}</label>
-			</span>
-			<br />
-			<span>
-				<label>UserID:{props.userId}</label>
-			</span>
-			<br />
-			<span>
-				<label>Direction:{props.direction}</label>
-			</span>
-			<br />
-			<span>
-				<label>Duration:{props.duration}</label>
-			</span>
-			<br />
-			<span>
-				<label>Vehicle:{props.vehicle}</label>
-			</span>
-			<br />
-			<span>
-				<label>Cost:{props.cost}</label>
-			</span>
-			<br />
-			<span>
-				<label>Date Created:{props.date}</label>
-			</span>
-			<br />
-			<span>
-				<label>Completed:{props.completed}</label>
+				<label>Completed: {props.completed}</label>
 			</span>
 			<div className="booking-actions">
-				<button className="btn">Edit</button>
-				<button className="btn">Delete</button>
-				<button className="btn">Update</button>
+				<button className="btn" onClick={props.onEdit.bind(props.bookingId)}>
+					Edit
+				</button>
+				<button
+					style={{ backgroundColor: "red" }}
+					className="btn"
+					onClick={props.onDelete.bind(props.bookingId)}>
+					Delete
+				</button>
 			</div>
 			<div className="back-button">
 				<button className="btn" onClick={props.onCancel}>

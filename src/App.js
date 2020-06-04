@@ -54,10 +54,10 @@ function App() {
 					<NavBar onLogout={logout} />
 					<Switch>
 						{!token && <Route path="/auth" component={Auth} />}
-						<Route path="/bookings" component={Bookings} />
+						<PrivateRoute path="/bookings" component={Bookings} />
 						<Route path="/trips" component={Trips} />
-						<Redirect from="/" to="/auth" />}
-						{token && <Redirect from="/auth" to="/bookings" />}
+						<Redirect from="/" to="/trips" />}
+						{token && <Redirect from="/auth" to="/trips" />}
 					</Switch>
 				</AuthContext.Provider>
 			</React.Fragment>

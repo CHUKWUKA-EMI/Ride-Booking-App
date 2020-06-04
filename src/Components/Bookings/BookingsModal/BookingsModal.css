@@ -5,17 +5,19 @@
 	top: 30vh;
 	width: 20rem;
 	left: 2rem;
+	word-spacing: 2rem;
 }
 .booking-modal span label {
 	margin-left: 0.5rem;
 	font-weight: 600;
 	margin-top: 0.5rem;
+	color: #2b2ba7;
 }
 
 .booking-actions {
 	display: flex;
 	margin-top: 1rem;
-	margin-left: 2rem;
+	margin-left: 4rem;
 	height: 3rem;
 	width: 20rem;
 	justify-items: space-between;
@@ -36,6 +38,7 @@
 	height: 2rem;
 	font-size: 15px;
 	margin-left: 5rem;
+	background-color: #3a3939;
 }
 
 @media (min-width: 768px) {
@@ -74,7 +77,7 @@
 	.booking-modal {
 		width: 55rem;
 		margin-left: 3rem;
-		height: 35rem;
+		height: 20rem;
 	}
 	.booking-modal span label {
 		font-size: 25px;
@@ -84,7 +87,7 @@
 @media (min-width: 1280px) {
 	.booking-modal {
 		top: 15vh;
-		height: 32rem;
+		height: 24rem;
 		margin-left: 10rem;
 	}
 }
@@ -92,14 +95,16 @@
 	.booking-modal {
 		top: 15vh;
 		margin-left: 17rem;
+		padding-top: 3rem;
 	}
 	.booking-actions {
 		margin-top: 3rem;
-		margin-left: 7rem;
+		margin-left: 10rem;
 	}
 	.booking-actions button {
 		height: 2.5rem;
 		font-size: 25px;
+		margin-left: 6rem;
 	}
 	.back-button {
 		margin-left: 11rem;
@@ -110,7 +115,7 @@
 		font-size: 25px;
 	}
 	.booking-modal span label {
-		padding-top: 3.5rem;
-		margin-top: 2rem;
+		margin-left: 3rem;
+		margin-top: 4rem;
 	}
 }

@@ -4,6 +4,26 @@
 	margin-left: 4rem;
 	color: #2b2ba7;
 }
+.edit-form {
+	margin-left: 2rem;
+	margin-top: 4rem;
+	width: 20rem;
+}
+.edit-form form span label {
+	color: #2b2ba7;
+	font-size: 15px;
+}
+.edit-form form span input {
+	width: 15rem;
+	height: 20px;
+	border: 1px solid #2b2ba7;
+	font-size: 15px;
+}
+.edit-form button {
+	width: 5rem;
+	height: 3rem;
+	margin-top: 2rem;
+}
 .bookings-container p {
 	margin-left: 4rem;
 	color: #2b2ba7;
@@ -85,11 +105,32 @@
 @media (min-width: 1440px) {
 	.bookings-container h1 {
 		margin-left: 35rem;
+		margin-top: 5rem;
 	}
 	.bookings-container p {
 		margin-left: 35rem;
 	}
 	.bookings-container div {
 		margin-left: 25rem;
+		margin-top: 1rem;
+	}
+	.edit-form {
+		margin-left: 26rem;
+		margin-top: 0;
+		width: 40rem;
+	}
+	.edit-form form span label {
+		color: #2b2ba7;
+		font-size: 25px;
+	}
+	.edit-form form span input {
+		width: 20rem;
+		height: 30px;
+		border: 2px solid #2b2ba7;
+		font-size: 25px;
+	}
+	.edit-form button {
+		width: 5rem;
+		height: 2.5rem;
 	}
 }
