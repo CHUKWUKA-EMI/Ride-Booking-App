@@ -35,7 +35,6 @@ const Trips = () => {
 		};
 		makeRequest({ data: requestBody, token: context.token })
 			.then((resData) => {
-				console.log(resData);
 				setSelectedRoute(null);
 			})
 			.catch((err) => {

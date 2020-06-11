@@ -46,7 +46,6 @@ const Auth = (props) => {
 
 		const result = await makeRequest({ data: requestBody })
 			.then((resData) => {
-				console.log(resData);
 				if (isLogIn) {
 					context.login(
 						resData.data.login.token,
@@ -54,6 +53,7 @@ const Auth = (props) => {
 						resData.data.login.tokenExpiration
 					);
 				}
+				setErrorMessage("You can now log in");
 			})
 			.catch((err) => {
 				setErrorMessage(err.message);

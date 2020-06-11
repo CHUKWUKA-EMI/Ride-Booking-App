@@ -14,10 +14,10 @@ const Bookings = (props) => {
 	const [bookings, setBookings] = useState([]);
 	const [selectedBooking, setSelectedBooking] = useState(null);
 	const [isEdit, setIsEdit] = useState(false);
-	const [completed, setCompleted] = useState(null);
+	const [isComplete, setIsComplete] = useState(null);
 	const [completedTrip, setCompletedTrip] = useState([]);
 	const [selectCompletedTrip, setSelectCompletedTrip] = useState(null);
-	const [CompleteView, setCompleteView] = useState(false);
+	const [completeView, setCompleteView] = useState(false);
 	const context = useContext(Authcontext);
 
 	useEffect(() => {
@@ -29,13 +29,12 @@ const Bookings = (props) => {
 		setCompleteView(true);
 		const selected = completedTrip.find((e) => e.id === bookingId);
 		setSelectCompletedTrip(selected);
-		console.log(selectCompletedTrip);
 	};
 	const closeCompletedModal = () => {
 		setCompleteView(false);
 	};
 
-	const ModalCancelHandler = () => {
+	const modalCancelHandler = () => {
 		setModalViewing(false);
 	};
 	const onEditHandler = () => {
@@ -65,15 +64,13 @@ const Bookings = (props) => {
 			data: requestBody,
 			token: context.token,
 		}).then((resData) => {
-			console.log(resData.data.bookings);
 			setBookings(resData.data.bookings);
 		});
 	};
-	const DeleteHandler = async (bookingId) => {
+	const deleteHandler = async (bookingId) => {
 		const bookingdata = deleteBooking({ bookingId: selectedBooking.id });
 
 		makeRequest({ data: bookingdata, token: context.token }).then(() => {
-			console.log("deleted");
 			const updatedBookings = bookings.filter((e) => e.id !== bookingId);
 			setBookings(updatedBookings);
 			setModalViewing(false);
@@ -83,7 +80,7 @@ const Bookings = (props) => {
 	const updateHandler = (bookingId) => {
 		const updateData = editBooking({
 			bookingId: selectedBooking.id,
-			completed: completed,
+			completed: isComplete,
 		});
 
 		makeRequest({ data: updateData, token: context.token }).then((resData) => {
@@ -96,15 +93,14 @@ const Bookings = (props) => {
 
 		makeRequest({ data: completedTrips, token: context.token }).then(
 			(resData) => {
-				console.log(resData);
 				setCompletedTrip(resData.data.completedTrips);
 			}
 		);
 	};
-	console.log(completedTrip);
+
 	return (
 		<React.Fragment>
-			{(modalViewing || CompleteView) && <Backdrop />}
+			{(modalViewing || completeView) && <Backdrop />}
 			<div className="bookings-container">
 				<h1>Welcome to Bookings page</h1>
 				<p>You can view your bookings below</p>
@@ -142,12 +138,12 @@ const Bookings = (props) => {
 					direction={selectedBooking.trip}
 					date={new Date().toLocaleDateString()}
 					completed={selectedBooking.completed.toString()}
-					onCancel={ModalCancelHandler}
-					onDelete={DeleteHandler}
+					onCancel={modalCancelHandler}
+					onDelete={deleteHandler}
 					onEdit={onEditHandler}
 				/>
 			)}
-			{CompleteView && (
+			{completeView && (
 				<CompletedModal
 					id={selectCompletedTrip.id}
 					trip={selectCompletedTrip.trip}
@@ -164,8 +160,8 @@ const Bookings = (props) => {
 							<input
 								type="text"
 								name="completed"
-								value={completed}
-								onChange={(e) => setCompleted(e.target.value)}
+								value={isComplete}
+								onChange={(e) => setIsComplete(e.target.value)}
 							/>
 						</span>
 						<button
