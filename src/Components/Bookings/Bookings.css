@@ -1,136 +1,159 @@
 .bookings-container h1 {
-	margin-top: 7rem;
-	font-size: 20px;
-	margin-left: 4rem;
-	color: #2b2ba7;
+  margin-top: 7rem;
+  font-size: 20px;
+  margin-left: 4rem;
+  color: #2b2ba7;
+}
+.bookings-container h2 {
+  margin-left: 4rem;
+  color: #cf11b6;
+  width: 20rem;
+  background-color: white;
+  margin-top: 0.5rem;
 }
 .edit-form {
-	margin-left: 2rem;
-	margin-top: 4rem;
-	width: 20rem;
+  margin-left: 2rem;
+  margin-top: 4rem;
+  width: 20rem;
 }
 .edit-form form span label {
-	color: #2b2ba7;
-	font-size: 15px;
+  color: #2b2ba7;
+  font-size: 15px;
 }
 .edit-form form span input {
-	width: 15rem;
-	height: 20px;
-	border: 1px solid #2b2ba7;
-	font-size: 15px;
+  width: 15rem;
+  height: 20px;
+  border: 1px solid #2b2ba7;
+  font-size: 15px;
 }
 .edit-form button {
-	width: 5rem;
-	height: 3rem;
-	margin-top: 2rem;
+  width: 5rem;
+  height: 3rem;
+  margin-top: 2rem;
 }
 .bookings-container p {
-	margin-left: 4rem;
-	color: #2b2ba7;
-	margin-top: 0.5rem;
+  margin-left: 4rem;
+  color: #2b2ba7;
+  margin-top: 0.5rem;
 }
 
 .bookings-container div {
-	display: flex;
-	justify-content: space-between;
-	width: 20rem;
-	height: 2rem;
-	align-items: center;
-	margin-left: 2rem;
-	margin-top: 3rem;
-	border: 2px solid #2b2ba7;
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+  height: 2rem;
+  align-items: center;
+  margin-left: 2rem;
+  margin-top: 3rem;
+  border: 2px solid #2b2ba7;
 }
 .bookings-container div button {
-	width: 4rem;
-	height: 1.5rem;
-	font-size: 15px;
-	margin-right: 0.5rem;
+  width: 4rem;
+  height: 1.5rem;
+  font-size: 15px;
+  margin-right: 0.5rem;
 }
 .bookings-container div section {
-	font-size: 15px;
-	margin-left: 0.5rem;
+  font-size: 15px;
+  margin-left: 0.5rem;
 }
 
 @media (min-width: 768px) {
-	.bookings-container h1 {
-		margin-left: 15rem;
-		font-size: 25px;
-		margin-top: 9rem;
-	}
-	.bookings-container p {
-		margin-left: 15rem;
-		font-size: 20px;
-		font-weight: 700;
-	}
-	.bookings-container div {
-		width: 40rem;
-		height: 3rem;
-		margin-left: 4rem;
-	}
-	.bookings-container div button {
-		width: 6rem;
-		height: 2rem;
-		font-size: 20px;
-	}
-	.bookings-container div section {
-		font-size: 25px;
-		font-weight: 800;
-	}
+  .bookings-container h1 {
+    margin-left: 15rem;
+    font-size: 25px;
+    margin-top: 9rem;
+  }
+  .bookings-container p {
+    margin-left: 15rem;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .bookings-container h2 {
+    margin-left: 15rem;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .bookings-container div {
+    width: 40rem;
+    height: 3rem;
+    margin-left: 4rem;
+  }
+  .bookings-container div button {
+    width: 6rem;
+    height: 2rem;
+    font-size: 20px;
+  }
+  .bookings-container div section {
+    font-size: 25px;
+    font-weight: 800;
+  }
 }
 @media (min-width: 1024px) {
-	.bookings-container h1 {
-		margin-left: 20rem;
-		font-size: 30px;
-	}
-	.bookings-container p {
-		margin-left: 20rem;
-		font-size: 25px;
-	}
-	.bookings-container div {
-		width: 47rem;
-		margin-left: 8rem;
-	}
+  .bookings-container h1 {
+    margin-left: 20rem;
+    font-size: 30px;
+  }
+  .bookings-container p {
+    margin-left: 20rem;
+    font-size: 25px;
+  }
+  .bookings-container h2 {
+    margin-left: 20rem;
+    font-size: 25px;
+  }
+  .bookings-container div {
+    width: 47rem;
+    margin-left: 8rem;
+  }
 }
 @media (min-width: 1280px) {
-	.bookings-container h1 {
-		margin-left: 30rem;
-	}
-	.bookings-container p {
-		margin-left: 30rem;
-	}
-	.bookings-container div {
-		margin-left: 18rem;
-	}
+  .bookings-container h1 {
+    margin-left: 30rem;
+  }
+  .bookings-container p {
+    margin-left: 30rem;
+  }
+  .bookings-container h2 {
+    margin-left: 30rem;
+  }
+  .bookings-container div {
+    margin-left: 18rem;
+  }
 }
 @media (min-width: 1440px) {
-	.bookings-container h1 {
-		margin-left: 35rem;
-		margin-top: 5rem;
-	}
-	.bookings-container p {
-		margin-left: 35rem;
-	}
-	.bookings-container div {
-		margin-left: 25rem;
-		margin-top: 1rem;
-	}
-	.edit-form {
-		margin-left: 26rem;
-		margin-top: 0;
-		width: 40rem;
-	}
-	.edit-form form span label {
-		color: #2b2ba7;
-		font-size: 25px;
-	}
-	.edit-form form span input {
-		width: 20rem;
-		height: 30px;
-		border: 2px solid #2b2ba7;
-		font-size: 25px;
-	}
-	.edit-form button {
-		width: 5rem;
-		height: 2.5rem;
-	}
+  .bookings-container h1 {
+    margin-left: 35rem;
+    margin-top: 5rem;
+  }
+  .bookings-container p {
+    margin-left: 35rem;
+  }
+  .bookings-container h2 {
+    margin-left: 30rem;
+    width: 30rem;
+  }
+  .bookings-container div {
+    margin-left: 25rem;
+    margin-top: 1rem;
+  }
+  .edit-form {
+    margin-left: 26rem;
+    margin-top: 0;
+    width: 40rem;
+  }
+  .edit-form form span label {
+    color: #2b2ba7;
+    font-size: 25px;
+  }
+  .edit-form form span input {
+    width: 20rem;
+    height: 30px;
+    border: 2px solid #2b2ba7;
+    font-size: 25px;
+  }
+  .edit-form button {
+    width: 5rem;
+    height: 2.5rem;
+  }
 }

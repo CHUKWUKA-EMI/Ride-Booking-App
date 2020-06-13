@@ -18,6 +18,7 @@ const Bookings = (props) => {
   const [completedTrip, setCompletedTrip] = useState([]);
   const [selectCompletedTrip, setSelectCompletedTrip] = useState(null);
   const [completeView, setCompleteView] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
   const context = useContext(Authcontext);
 
   useEffect(() => {
@@ -79,12 +80,12 @@ const Bookings = (props) => {
 
   const updateHandler = (bookingId) => {
     const updateData = editBooking({
-      bookingId: selectedBooking.id,
+      bookingId: bookingId,
       completed: isComplete,
     });
 
     makeRequest({ data: updateData, token: context.token }).then((resData) => {
-      setModalViewing(true);
+      setSuccessMsg("You have successfully updated your booking!");
     });
   };
 
@@ -103,7 +104,11 @@ const Bookings = (props) => {
       {(modalViewing || completeView) && <Backdrop />}
       <div className="bookings-container">
         <h1>Welcome to Bookings page</h1>
-        <p>You can view your bookings below</p>
+        {successMsg ? (
+          <h2 className="success">{successMsg}</h2>
+        ) : (
+          <p>You can view your bookings below</p>
+        )}
         {bookings.map((booking) => {
           return (
             <div>
@@ -154,7 +159,7 @@ const Bookings = (props) => {
         />
       )}
 
-      {isEdit && (
+      {isEdit && !successMsg && (
         <div className="edit-form">
           <form onSubmit={(e) => e.preventDefault()}>
             <span>
@@ -162,6 +167,7 @@ const Bookings = (props) => {
               <input
                 type="text"
                 name="completed"
+                placeholder="True or False"
                 value={isComplete}
                 onChange={(e) => setIsComplete(e.target.value)}
               />
