@@ -35,6 +35,7 @@ const Trips = () => {
 		};
 		makeRequest({ data: requestBody, token: context.token })
 			.then((resData) => {
+				setErrMsg("You have booked a Trip! Good luck!");
 				setSelectedRoute(null);
 			})
 			.catch((err) => {
