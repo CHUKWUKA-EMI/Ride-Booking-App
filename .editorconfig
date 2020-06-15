@@ -1,0 +1,25 @@
+# top-most EditorConfig file
+root = true
+
+# defaults
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# CSS
+[*.css]
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = true
+
+# JavaScript, JSON, JSX, JavaScript Modules, TypeScript
+[*.{cjs,js,json,jsx,mjs,ts,tsx}]
+indent_size = 2
+indent_style = space
+
+# Shell
+[*.{bash,sh,zsh}]
+indent_size = 2
+indent_style = space

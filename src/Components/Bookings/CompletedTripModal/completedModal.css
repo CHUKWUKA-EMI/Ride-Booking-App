@@ -1,0 +1,30 @@
+.completed-modal {
+	position: fixed;
+	background: white;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.26);
+	top: 30vh;
+	width: 20rem;
+	left: 30rem;
+}
+.completed-modal div button {
+	margin-left: 5rem;
+	margin-top: 1rem;
+	width: 4rem;
+}
+
+@media (min-width: 1440px) {
+	.completed-modal {
+		width: 35rem;
+		word-spacing: 2rem;
+		font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+			sans-serif;
+		font-size: 17px;
+		color: #2e2ec7;
+		height: 15rem;
+		padding-left: 3.5rem;
+	}
+	.completed-modal div button {
+		margin-left: 14rem;
+		margin-top: 1rem;
+	}
+}

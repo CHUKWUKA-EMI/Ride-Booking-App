@@ -5,6 +5,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import Auth from "./Components/Auth/auth";
 import Bookings from "./Components/Bookings/Bookings";
 import Trips from "./Components/Trips/Trips";
+import PageNotFound from "./Components/404ErrorPage/404ErrorPage";
 import AuthContext from "./Components/Context/context";
 
 function App() {
@@ -57,7 +58,8 @@ function App() {
 						<Route path="/bookings" component={Bookings} />
 						<Route path="/trips" component={Trips} />
 						<Redirect from="/" to="/auth" />}
-						{token && <Redirect from="/auth" to="/bookings" />}
+						{token && <Redirect from="/auth" to="/trips" />}
+						<Route path="/*" component={PageNotFound} />
 					</Switch>
 				</AuthContext.Provider>
 			</React.Fragment>
