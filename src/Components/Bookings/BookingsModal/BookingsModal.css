@@ -1,121 +1,121 @@
 .booking-modal {
-	position: fixed;
-	background: white;
-	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.26);
-	top: 30vh;
-	width: 20rem;
-	left: 2rem;
-	word-spacing: 2rem;
+  position: fixed;
+  background: white;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.26);
+  top: 30vh;
+  width: 20rem;
+  left: 2rem;
+  word-spacing: 2rem;
 }
 .booking-modal span label {
-	margin-left: 0.5rem;
-	font-weight: 600;
-	margin-top: 0.5rem;
-	color: #2b2ba7;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  color: #2b2ba7;
 }
 
 .booking-actions {
-	display: flex;
-	margin-top: 1rem;
-	margin-left: 4rem;
-	height: 3rem;
-	width: 20rem;
-	justify-items: space-between;
+  display: flex;
+  margin-top: 1rem;
+  margin-left: 4rem;
+  height: 3rem;
+  width: 20rem;
+  justify-items: space-between;
 }
 .booking-actions button {
-	height: 2rem;
-	width: 4rem;
-	margin-left: 1.5rem;
-	font-size: 15px;
+  height: 2rem;
+  width: 4rem;
+  margin-left: 1.5rem;
+  font-size: 15px;
 }
 .back-button {
-	margin-left: 4rem;
-	margin-top: 2rem;
-	width: 20rem;
+  margin-left: 4rem;
+  margin-top: 2rem;
+  width: 20rem;
 }
 .back-button button {
-	width: 4rem;
-	height: 2rem;
-	font-size: 15px;
-	margin-left: 5rem;
-	background-color: #3a3939;
+  width: 4rem;
+  height: 2rem;
+  font-size: 15px;
+  margin-left: 5rem;
+  background-color: #3a3939;
 }
 
 @media (min-width: 768px) {
-	.booking-modal {
-		width: 43rem;
-		height: 28rem;
-	}
-	.booking-modal span label {
-		font-size: 25px;
-		font-weight: 800;
-	}
-	.booking-actions {
-		margin-top: 2rem;
-		margin-left: 4rem;
-		height: 6rem;
-		width: 35rem;
-	}
-	.booking-actions button {
-		margin-left: 5rem;
-		height: 3.5rem;
-		width: 7rem;
-		font-size: 25px;
-	}
-	.back-button {
-		margin-left: 8rem;
-		width: 35rem;
-	}
-	.back-button button {
-		margin-left: 13rem;
-		height: 3.5rem;
-		width: 7rem;
-		font-size: 25px;
-	}
+  .booking-modal {
+    width: 43rem;
+    height: 28rem;
+  }
+  .booking-modal span label {
+    font-size: 25px;
+    font-weight: 800;
+  }
+  .booking-actions {
+    margin-top: 2rem;
+    margin-left: 4rem;
+    height: 6rem;
+    width: 35rem;
+  }
+  .booking-actions button {
+    margin-left: 5rem;
+    height: 3.5rem;
+    width: 7rem;
+    font-size: 25px;
+  }
+  .back-button {
+    margin-left: 8rem;
+    width: 35rem;
+  }
+  .back-button button {
+    margin-left: 13rem;
+    height: 3.5rem;
+    width: 7rem;
+    font-size: 25px;
+  }
 }
 @media (min-width: 1024px) {
-	.booking-modal {
-		width: 55rem;
-		margin-left: 3rem;
-		height: 20rem;
-	}
-	.booking-modal span label {
-		font-size: 25px;
-		font-weight: 900;
-	}
+  .booking-modal {
+    width: 55rem;
+    margin-left: 3rem;
+    height: 20rem;
+  }
+  .booking-modal span label {
+    font-size: 25px;
+    font-weight: 900;
+  }
 }
 @media (min-width: 1280px) {
-	.booking-modal {
-		top: 15vh;
-		height: 24rem;
-		margin-left: 10rem;
-	}
+  .booking-modal {
+    top: 15vh;
+    height: 24rem;
+    margin-left: 10rem;
+  }
 }
 @media (min-width: 1440px) {
-	.booking-modal {
-		top: 15vh;
-		margin-left: 17rem;
-		padding-top: 3rem;
-	}
-	.booking-actions {
-		margin-top: 3rem;
-		margin-left: 10rem;
-	}
-	.booking-actions button {
-		height: 2.5rem;
-		font-size: 25px;
-		margin-left: 6rem;
-	}
-	.back-button {
-		margin-left: 11rem;
-		margin-top: 1rem;
-	}
-	.back-button button {
-		height: 2.5rem;
-		font-size: 25px;
-	}
-	.booking-modal span label {
-		margin-left: 3rem;
-		margin-top: 4rem;
-	}
+  .booking-modal {
+    top: 15vh;
+    margin-left: 17rem;
+    padding-top: 3rem;
+  }
+  .booking-actions {
+    margin-top: 3rem;
+    margin-left: 10rem;
+  }
+  .booking-actions button {
+    height: 2.5rem;
+    font-size: 25px;
+    margin-left: 6rem;
+  }
+  .back-button {
+    margin-left: 11rem;
+    margin-top: 1rem;
+  }
+  .back-button button {
+    height: 2.5rem;
+    font-size: 25px;
+  }
+  .booking-modal span label {
+    margin-left: 3rem;
+    margin-top: 4rem;
+  }
 }

@@ -1,74 +1,74 @@
 .modal-class {
-	position: fixed;
-	width: 80%;
-	top: 7rem;
-	right: 4rem;
-	height: 75vh;
-	margin-top: 3rem;
-	margin-left: 10%;
-	background: #ffffff;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-		0px 4px 15px rgba(255, 255, 255, 0.15);
+  position: fixed;
+  width: 80%;
+  top: 7rem;
+  right: 4rem;
+  height: 72vh;
+  margin-top: 3rem;
+  margin-left: 10%;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 15px rgba(255, 255, 255, 0.15);
 }
 
 .modal-class p {
-	font-family: Arial, Helvetica, sans-serif;
-	width: 100%;
-	font-style: normal;
-	font-weight: 600;
-	margin: 0.2% 6rem;
-	font-size: 15px;
-	line-height: 33px;
-	/* identical to box height */
-	color: #2b2ba7;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0.2% 4rem;
+  font-size: 15px;
+  line-height: 33px;
+  /* identical to box height */
+  color: #2b2ba7;
 }
 
 span label {
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-	font-size: 10px;
-	font-weight: 1000;
-	padding: 0;
-	max-width: 100%;
-	margin-left: 12%;
-	color: #473c3c;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 1000;
+  padding: 0;
+  max-width: 100%;
+  margin-left: 12%;
+  color: #473c3c;
 }
 
 @media (min-width: 768px) {
-	.modal-class {
-		right: 11rem;
-		height: 90vh;
-	}
-	.modal-class p {
-		font-size: 20px;
-		margin-left: 20rem;
-	}
-	span label {
-		font-size: 20px;
-	}
+  .modal-class {
+    right: 11rem;
+    height: 90vh;
+  }
+  .modal-class p {
+    font-size: 20px;
+    margin-left: 20rem;
+  }
+  span label {
+    font-size: 20px;
+  }
 }
 @media (min-width: 1024px) {
-	.modal-class {
-		right: 8rem;
-		height: 75vh;
-	}
+  .modal-class {
+    right: 8rem;
+    height: 75vh;
+  }
 }
 @media (min-width: 1280px) {
-	.modal-class {
-		right: 9rem;
+  .modal-class {
+    right: 9rem;
 
-		height: 75vh;
-	}
-	.modal-class p {
-		margin-left: 26rem;
-	}
+    height: 75vh;
+  }
+  .modal-class p {
+    margin-left: 26rem;
+  }
 }
 @media (min-width: 1440px) {
-	.modal-class {
-		right: 11rem;
-		margin-top: 2.5rem;
-		height: 77.5vh;
-	}
-	.modal-class p {
-		margin-left: 33rem;
-	}
+  .modal-class {
+    right: 11rem;
+    margin-top: 2.5rem;
+    height: 76.1vh;
+  }
+  .modal-class p {
+    margin-left: 33rem;
+  }
 }
