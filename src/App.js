@@ -9,62 +9,63 @@ import PageNotFound from "./Components/404ErrorPage/404ErrorPage";
 import AuthContext from "./Components/Context/context";
 
 function App() {
-	const [token, setToken] = useState(null);
-	const [userId, setUserId] = useState(null);
+  const [token, setToken] = useState(null);
+  const [userId, setUserId] = useState(null);
 
-	const login = (token, userId, tokenExpiration) => {
-		setToken(token);
-		setUserId(userId);
-		localStorage.setItem("token", token);
-	};
+  const login = (token, userId, tokenExpiration) => {
+    setToken(token);
+    setUserId(userId);
+    localStorage.setItem("token", token);
+  };
 
-	const logout = () => {
-		setToken(null);
-		setUserId(null);
-		localStorage.setItem("token", "");
-	};
-	const PrivateRoute = ({ component: Component, ...rest }) => (
-		<Route
-			{...rest}
-			render={(props) =>
-				token ? (
-					<Component {...props} />
-				) : (
-					<Redirect
-						to={{
-							pathname: "/auth",
+  const logout = () => {
+    setToken(null);
+    setUserId(null);
+    localStorage.setItem("token", "");
+  };
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={(props) =>
+        token ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/auth",
 
-							state: { from: props.location },
-						}}
-					/>
-				)
-			}
-		/>
-	);
+              state: { from: props.location },
+            }}
+          />
+        )
+      }
+    />
+  );
 
-	return (
-		<BrowserRouter>
-			<React.Fragment>
-				<AuthContext.Provider
-					value={{
-						token: token,
-						userId: userId,
-						login: login,
-						logout: logout,
-					}}>
-					<NavBar onLogout={logout} />
-					<Switch>
-						{!token && <Route path="/auth" component={Auth} />}
-						<Route path="/bookings" component={Bookings} />
-						<Route path="/trips" component={Trips} />
-						<Redirect from="/" to="/auth" />}
-						{token && <Redirect from="/auth" to="/trips" />}
-						<Route path="/*" component={PageNotFound} />
-					</Switch>
-				</AuthContext.Provider>
-			</React.Fragment>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <React.Fragment>
+        <AuthContext.Provider
+          value={{
+            token: token,
+            userId: userId,
+            login: login,
+            logout: logout,
+          }}
+        >
+          <NavBar onLogout={logout} />
+          <Switch>
+            {!token && <Route path="/auth" component={Auth} />}
+            <Route path="/bookings" component={Bookings} />
+            <Route path="/trips" component={Trips} />
+            <Redirect from="/" to="/auth" />
+            {token && <Redirect from="/auth" to="/trips" />}
+            <Route path="/*" component={PageNotFound} />
+          </Switch>
+        </AuthContext.Provider>
+      </React.Fragment>
+    </BrowserRouter>
+  );
 }
 
 export default App;
