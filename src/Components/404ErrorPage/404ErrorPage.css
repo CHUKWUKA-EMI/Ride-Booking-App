@@ -1,74 +1,74 @@
 body {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	width: 100%;
-	background-color: #c4c4c4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #c4c4c4;
 }
 
 .error-page h2 {
-	margin-top: 12rem;
-	color: #25ce25;
-	margin-left: 8rem;
-	animation-name: justice;
-	animation-duration: 8s;
-	animation-delay: 4s;
-	animation-iteration-count: infinite;
-	font-family: "Courier New", Courier, monospace;
-	font-size: 55px;
+  margin-top: 12rem;
+  color: #25ce25;
+  margin-left: 8rem;
+  animation-name: justice;
+  animation-duration: 8s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 55px;
 }
 .error-page h3 {
-	margin-left: 5rem;
-	font-family: cursive;
+  margin-left: 5rem;
+  font-family: cursive;
 
-	font-size: 25px;
-	color: #292727;
+  font-size: 25px;
+  color: #292727;
 }
 .error-page p {
-	margin-left: 8rem;
-	list-style: none;
-	font-size: 20px;
-	align-items: center;
+  margin-left: 8rem;
+  list-style: none;
+  font-size: 20px;
+  align-items: center;
 }
 .error-page p a {
-	text-decoration: underline;
-	font-weight: 800;
-	color: #2b2ba1;
-	cursor: pointer;
+  text-decoration: underline;
+  font-weight: 800;
+  color: #2b2ba1;
+  cursor: pointer;
 }
 
 @media (min-width: 1440px) {
-	.error-page h2 {
-		margin-left: 40rem;
-		font-size: 100px;
-	}
-	.error-page h3 {
-		margin-top: 1rem;
-		margin-left: 35rem;
-		font-style: italic;
-		height: 40px;
-		font-size: 40px;
-	}
-	.error-page p {
-		margin-left: 38rem;
-		font-size: 25px;
-	}
-	.error-page p a {
-		font-size: 20px;
-	}
+  .error-page h2 {
+    margin-left: 40rem;
+    font-size: 100px;
+  }
+  .error-page h3 {
+    margin-top: 1rem;
+    margin-left: 35rem;
+    font-style: italic;
+    height: 40px;
+    font-size: 40px;
+  }
+  .error-page p {
+    margin-left: 38rem;
+    font-size: 25px;
+  }
+  .error-page p a {
+    font-size: 20px;
+  }
 }
 @keyframes justice {
-	0% {
-		color: #f00909;
-	}
-	25% {
-		color: #06068d;
-	}
-	50% {
-		color: #146161;
-	}
-	100% {
-		color: #520e0e;
-	}
+  0% {
+    color: #f00909;
+  }
+  25% {
+    color: #06068d;
+  }
+  50% {
+    color: #146161;
+  }
+  100% {
+    color: #520e0e;
+  }
 }
