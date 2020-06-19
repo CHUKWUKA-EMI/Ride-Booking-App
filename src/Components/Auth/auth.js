@@ -104,7 +104,7 @@ const Auth = (props) => {
           {!isLogIn
             ? "Already have an account?"
             : "You don't have an account yet?"}{" "}
-          <a onClick={(e) => setIsLoggedIn(!isLogIn)}>
+          <a onClick={(e) => setIsLoggedIn(!isLogIn)} href="/auth">
             {!isLogIn ? "Login" : "Sign Up"}
           </a>
         </p>
