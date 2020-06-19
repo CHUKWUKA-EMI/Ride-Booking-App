@@ -45,5 +45,5 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "homepage": "."
+  "homepage": "https://chukwuka-emi.github.io/Ride-Booking-App/"
 }
