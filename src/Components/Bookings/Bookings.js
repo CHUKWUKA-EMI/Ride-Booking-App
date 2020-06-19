@@ -24,7 +24,7 @@ const Bookings = (props) => {
   useEffect(() => {
     fetchBookings();
     fetchCompleteTrips();
-  }, []);
+  });
 
   const viewCompleteTrips = (bookingId) => {
     setCompleteView(true);
@@ -61,7 +61,7 @@ const Bookings = (props) => {
         }
 			`,
     };
-    const result = makeRequest({
+    makeRequest({
       data: requestBody,
       token: context.token,
     }).then((resData) => {

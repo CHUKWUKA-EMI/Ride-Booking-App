@@ -44,7 +44,7 @@ const Auth = (props) => {
       };
     }
 
-    const result = await makeRequest({ data: requestBody })
+    makeRequest({ data: requestBody })
       .then((resData) => {
         if (isLogIn) {
           context.login(
