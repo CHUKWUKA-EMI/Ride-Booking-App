@@ -55,6 +55,7 @@ function App() {
         >
           <NavBar onLogout={logout} />
           <Switch>
+            <Route path="/" exact component={Auth} />
             <Redirect from="/" to="/auth" />
             {!token && <Route path="/auth" component={Auth} />}
             <PrivateRoute path="/bookings" component={Bookings} />
