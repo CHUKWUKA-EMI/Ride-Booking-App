@@ -9,20 +9,23 @@ import PageNotFound from "./Components/404ErrorPage/404ErrorPage";
 import AuthContext from "./Components/Context/context";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [userId, setUserId] = useState(null);
 
   const login = (token, userId, tokenExpiration) => {
     setToken(token);
     setUserId(userId);
-    localStorage.setItem("token", token);
   };
 
   const logout = () => {
     setToken(null);
     setUserId(null);
-    localStorage.setItem("token", "");
+    localStorage.setItem("token", null);
   };
+  React.useEffect(() => {
+    localStorage.setItem("token", token);
+  }, [token]);
+
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
       {...rest}
@@ -55,13 +58,12 @@ function App() {
         >
           <NavBar onLogout={logout} />
           <Switch>
-            <Route path="/" exact component={Auth} />
+            <Route exact path="/" component={Auth} />
             <Redirect from="/" to="/auth" />
             {!token && <Route path="/auth" component={Auth} />}
             <PrivateRoute path="/bookings" component={Bookings} />
             <Route path="/bookings" component={Bookings} />
             <Route path="/trips" component={Trips} />
-
             {token && <Redirect from="/auth" to="/trips" />}
             <Route path="/*" component={PageNotFound} />
           </Switch>

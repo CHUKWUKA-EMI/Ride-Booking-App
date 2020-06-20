@@ -24,7 +24,7 @@ const Bookings = (props) => {
   useEffect(() => {
     fetchBookings();
     fetchCompleteTrips();
-  });
+  }, []);
 
   const viewCompleteTrips = (bookingId) => {
     setCompleteView(true);
