@@ -24,9 +24,11 @@ const NavBar = (props) => {
               <NavLink to="/bookings">Bookings</NavLink>
             </li>
           )}
-          <li onClick={props.onLogout}>
-            <NavLink to="/auth">Logout</NavLink>
-          </li>
+          {context.token && (
+            <li onClick={props.onLogout}>
+              <NavLink to="/auth">Logout</NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </div>

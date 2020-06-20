@@ -7,14 +7,16 @@ const Auth = (props) => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [isLogIn, setIsLoggedIn] = useState(true);
+  const [isLogIn, setIsLogIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const context = useContext(AuthContext);
 
-  const submitHandler = async () => {
+  const submitHandler = () => {
     if (userEmail.trim().length === 0 || userPassword.trim().length === 0) {
       setErrorMessage("Input field cannot be Empty!");
+      return;
     }
 
     let requestBody = {
@@ -53,7 +55,8 @@ const Auth = (props) => {
             resData.data.login.tokenExpiration
           );
         }
-        setErrorMessage("You can now log in");
+        setSuccessMsg("Please log in");
+        setIsLogIn(true);
       })
       .catch((err) => {
         setErrorMessage(err.message);
@@ -70,6 +73,15 @@ const Auth = (props) => {
         }}
       >
         {errorMessage && <h3 className="err">{errorMessage}</h3>}
+
+        {successMsg && (
+          <h3
+            style={{ fontWeight: "bold", color: "green", borderColor: "green" }}
+          >
+            {successMsg}
+          </h3>
+        )}
+
         {!isLogIn && (
           <input
             type="text"
@@ -104,7 +116,7 @@ const Auth = (props) => {
           {!isLogIn
             ? "Already have an account?"
             : "You don't have an account yet?"}{" "}
-          <a onClick={(e) => setIsLoggedIn(!isLogIn)} href="/auth">
+          <a onClick={(e) => setIsLogIn(!isLogIn)}>
             {!isLogIn ? "Login" : "Sign Up"}
           </a>
         </p>

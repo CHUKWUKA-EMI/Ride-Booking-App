@@ -2,11 +2,10 @@
   margin-top: 6.4rem;
   margin-left: 1rem;
   width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 600;
   font-size: 15px;
-  color: #2b2ba7;
+  color: #12364b;
 }
 .err {
   color: #ee1212;

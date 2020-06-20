@@ -7,6 +7,7 @@ import deleteBooking from "../.././Helpers/Delete";
 import editBooking from "../.././Helpers/Edit";
 import getCompletedTrips from "../../Helpers/completedTrip";
 import CompletedModal from "./CompletedTripModal/CompletedModal";
+import Spinner from "../spinner/spinner";
 import Authcontext from "../Context/context";
 
 const Bookings = (props) => {
@@ -18,6 +19,7 @@ const Bookings = (props) => {
   const [completedTrip, setCompletedTrip] = useState([]);
   const [selectCompletedTrip, setSelectCompletedTrip] = useState(null);
   const [completeView, setCompleteView] = useState(false);
+  const [isLoading, setIsloading] = useState(true);
   const [successMsg, setSuccessMsg] = useState("");
   const context = useContext(Authcontext);
 
@@ -64,9 +66,13 @@ const Bookings = (props) => {
     makeRequest({
       data: requestBody,
       token: context.token,
-    }).then((resData) => {
-      setBookings(resData.data.bookings);
-    });
+    })
+      .then((resData) => {
+        setBookings(resData.data.bookings);
+      })
+      .catch((err) => {
+        setSuccessMsg(err.message);
+      });
   };
   const deleteHandler = (bookingId) => {
     const bookingdata = deleteBooking({ bookingId: selectedBooking.id });
@@ -75,6 +81,7 @@ const Bookings = (props) => {
       const updatedBookings = bookings.filter((e) => e.id !== bookingId);
       setBookings(updatedBookings);
       setModalViewing(false);
+      setIsloading(false);
     });
   };
 
@@ -84,7 +91,7 @@ const Bookings = (props) => {
       completed: isComplete,
     });
 
-    makeRequest({ data: updateData, token: context.token }).then((resData) => {
+    makeRequest({ data: updateData, token: context.token }).then(() => {
       setSuccessMsg("You have successfully updated your booking!");
     });
   };
@@ -95,6 +102,7 @@ const Bookings = (props) => {
     makeRequest({ data: completedTrips, token: context.token }).then(
       (resData) => {
         setCompletedTrip(resData.data.completedTrips);
+        setIsloading(false);
       }
     );
   };
@@ -109,35 +117,40 @@ const Bookings = (props) => {
         ) : (
           <p>You can view your bookings below</p>
         )}
-        {bookings.map((booking) => {
-          return (
-            <div>
-              <section>{booking.trip}</section>
-              <button
-                className=" btn"
-                id={booking.id}
-                onClick={() => onViewHandler(booking.id)}
-              >
-                Details
-              </button>
-            </div>
-          );
-        })}
-        {completedTrip.map((trip) => {
-          return (
-            <div>
-              <section>Completed Trip</section>
-              <button
-                className=" btn"
-                id={trip.id}
-                onClick={() => viewCompleteTrips(trip.id)}
-              >
-                View
-              </button>
-            </div>
-          );
-        })}
+        {!context.token && <Spinner />}
+        {isLoading && <Spinner />}
+        {!isLoading &&
+          bookings.map((booking) => {
+            return (
+              <div>
+                <section>{booking.trip}</section>
+                <button
+                  className=" btn"
+                  id={booking.id}
+                  onClick={() => onViewHandler(booking.id)}
+                >
+                  Details
+                </button>
+              </div>
+            );
+          })}
+        {!isLoading &&
+          completedTrip.map((trip) => {
+            return (
+              <div>
+                <section>Completed Trip</section>
+                <button
+                  className=" btn"
+                  id={trip.id}
+                  onClick={() => viewCompleteTrips(trip.id)}
+                >
+                  View
+                </button>
+              </div>
+            );
+          })}
       </div>
+
       {modalViewing && (
         <BookingsModal
           bookingId={selectedBooking.id}

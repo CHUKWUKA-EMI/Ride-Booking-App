@@ -20,7 +20,7 @@ function App() {
   const logout = () => {
     setToken(null);
     setUserId(null);
-    localStorage.setItem("token", null);
+    localStorage.removeItem("token", null);
   };
   React.useEffect(() => {
     localStorage.setItem("token", token);
@@ -58,13 +58,11 @@ function App() {
         >
           <NavBar onLogout={logout} />
           <Switch>
-            <Route exact path="/" component={Auth} />
-            <Redirect from="/" to="/auth" />
+            <Redirect from="/" to="/auth" exact />
             {!token && <Route path="/auth" component={Auth} />}
             <PrivateRoute path="/bookings" component={Bookings} />
-            <Route path="/bookings" component={Bookings} />
+            {token && <Redirect from="/auth" to="/trips" exact />}
             <Route path="/trips" component={Trips} />
-            {token && <Redirect from="/auth" to="/trips" />}
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </AuthContext.Provider>

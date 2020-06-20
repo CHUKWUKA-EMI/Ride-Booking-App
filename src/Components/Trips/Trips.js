@@ -1,15 +1,20 @@
 import React, { useState, useContext } from "react";
 import "./Trips.css";
 import Modal from "../Modal/modal";
+import Spinner from "../spinner/spinner";
 import AuthContext from "../Context/context";
 import makeRequest from "../../Utils/index";
 
 const Trips = () => {
   const [selectedRoute, setSelectedRoute] = useState(null);
   const [errMsg, setErrMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const context = useContext(AuthContext);
 
+  React.useEffect(() => {
+    setIsLoading(false);
+  }, [isLoading]);
   const onCheckHandler = (routeId) => {
     setSelectedRoute(routeId);
   };
@@ -51,8 +56,11 @@ const Trips = () => {
       ) : (
         <h1>Welcome to JusticeRides. You can book your ride here!</h1>
       )}
-
-      <Modal onBook={onBookHandler} onTake={onCheckHandler} />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <Modal onBook={onBookHandler} onTake={onCheckHandler} />
+      )}
     </div>
   );
 };
