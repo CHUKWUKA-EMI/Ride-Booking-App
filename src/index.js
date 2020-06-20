@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import serviceWorker from "./serviceWorker";
 import App from "./App";
 import dotenv from "dotenv";
 
@@ -12,3 +13,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+serviceWorker.unregister();
