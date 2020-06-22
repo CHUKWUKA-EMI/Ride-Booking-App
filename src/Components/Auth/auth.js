@@ -116,7 +116,7 @@ const Auth = (props) => {
           {!isLogIn
             ? "Already have an account?"
             : "You don't have an account yet?"}{" "}
-          <a onClick={(e) => setIsLogIn(!isLogIn)}>
+          <a test-id="link" onClick={(e) => setIsLogIn(!isLogIn)}>
             {!isLogIn ? "Login" : "Sign Up"}
           </a>
         </p>

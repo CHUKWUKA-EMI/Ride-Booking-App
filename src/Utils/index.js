@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const URL = "https://ride-booking-app.herokuapp.com/graphql";
-console.log(URL);
+
 async function makeRequest({ url = URL, method = "post", data, token }) {
   try {
     const res = await fetch(url, {
