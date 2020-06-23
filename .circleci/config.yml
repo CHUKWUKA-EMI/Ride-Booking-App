@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node:lts
+
+        environment:
+          REACT_APP_API_URL: https://ride-booking-app.herokuapp.com/graphql
+
+    steps:
+      - checkout
+
+      - run:
+          name: install node-modules
+          command: npm install
+      - run:
+          name: start server
+          command: npm start
+          background: true
+
+      - run:
+          name: test
+          command: npm test
