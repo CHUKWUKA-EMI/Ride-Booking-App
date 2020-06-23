@@ -1,20 +1,16 @@
-import React, { useContext } from "react";
-import { shallow, mount, render } from "enzyme";
-import { cleanup } from "@testing-library/react";
+import React from "react";
+import { cleanup, render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 import CompletedModal from "./CompletedModal";
 
 afterEach(cleanup);
 
-xtest("component renders without crashing", () => {
-  const wrapper = mount(<CompletedModal />);
-  console.log(wrapper.debug());
-  expect(wrapper.exists()).toEqual(true);
+test("component renders without crashing", () => {
+  render(<CompletedModal />);
 });
 
-xtest("children nodes are rendered", () => {
-  const wrapper = mount(<CompletedModal />);
-  const div = document.createElement("div");
-  expect(wrapper.find("button").text()).toBe("Close");
-  expect(wrapper.contains(div)).toEqual(true);
+test("button is rendered", () => {
+  render(<CompletedModal />);
+  expect(screen.queryByTestId("completeModal-button")).toBeInTheDocument();
 });

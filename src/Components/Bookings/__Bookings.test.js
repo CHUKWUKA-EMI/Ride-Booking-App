@@ -1,33 +1,25 @@
-import React, { useContext } from "react";
-import { shallow, mount } from "enzyme";
-import { cleanup } from "@testing-library/react";
+import React from "react";
+import { cleanup, render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 import Bookings from "./Bookings";
 import Spinner from "../spinner/spinner";
 
 afterEach(cleanup);
 
-xtest("that the component renders without crashing", () => {
-  const wrapper = mount(<Bookings />);
-
-  expect(wrapper.exists()).toBe(true);
+test("that the component renders without crashing", () => {
+  render(<Bookings />);
 });
 
-xtest("component contains a greeting message", () => {
-  const wrapper = shallow(<Bookings />);
-  const h1 = <h1>Welcome to Bookings page</h1>;
+test("component contains a greeting message", () => {
+  const greeting = "Welcome to Bookings page";
+  render(<Bookings>{greeting}</Bookings>);
 
-  expect(wrapper.contains(h1)).toEqual(true);
+  expect(screen.queryByText(greeting)).toBeDefined();
 });
-xtest("that the children are mounted", () => {
-  const wrapper = shallow(<Bookings />);
-  const children = [
-    <h1>Welcome to Bookings page</h1>,
-    <p>You can view your bookings below</p>,
-    <Spinner />,
-    <Spinner />,
-    false,
-    false,
-  ];
-  expect(wrapper.find("div").props().children).toEqual(children);
+test("that the children are mounted", () => {
+  render(<Bookings />);
+  render(<Spinner />);
+
+  expect(screen.queryByRole("direct")).toBeInTheDocument();
 });

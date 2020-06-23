@@ -1,27 +1,34 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { cleanup } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import { shallow } from "enzyme";
+import { BrowserRouter } from "react-router-dom";
+import { cleanup, render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 import NavBar from "../NavBar";
 
 afterEach(cleanup);
 
-xit("renders without crashing", () => {
-  shallow(<NavBar />);
-});
-xit("renders a logo text", () => {
-  const wrapper = shallow(<NavBar />);
-  const text = <h1>JusticeRides</h1>;
-  expect(wrapper.contains(text)).toEqual(true);
-});
-xit("display a link", () => {
-  const wrapper = shallow(<NavBar />);
-  const link = (
-    <li>
-      <NavLink to="/auth">Authentication</NavLink>
-    </li>
+it("renders without crashing", () => {
+  render(
+    <BrowserRouter>
+      <NavBar />
+    </BrowserRouter>
   );
-  expect(wrapper.contains(link)).toEqual(true);
+});
+it("renders a logo text", () => {
+  render(
+    <BrowserRouter>
+      <NavBar />
+    </BrowserRouter>
+  );
+
+  expect(screen.queryByTestId("header")).toBeInTheDocument();
+});
+it("displays a link", () => {
+  render(
+    <BrowserRouter>
+      <NavBar />
+    </BrowserRouter>
+  );
+
+  expect(screen.queryByTestId("link")).toBeInTheDocument();
 });

@@ -1,38 +1,35 @@
 import React from "react";
-import { shallow, render } from "enzyme";
-import { cleanup } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import { cleanup, render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 import Auth from "../auth";
 
 afterEach(cleanup);
 
-xtest("when the form is submitted, the event is cancelled", () => {
-  const wrapper = shallow(<Auth />);
-  let prevented = false;
-  wrapper.find("form").simulate("submit", {
-    preventDefault: () => {
-      prevented = true;
-    },
-  });
-  expect(prevented).toBe(true);
+test("when the form is submitted without data, a message is shown", () => {
+  const text = "Input field cannot be Empty!";
+  render(<Auth>{text}</Auth>);
+
+  expect(screen.queryByText(text)).toBeNull();
+
+  fireEvent.submit(screen.queryByTestId("auth-form"));
+  expect(screen.getByText(text)).toBeInTheDocument;
 });
 
-xtest("user text is echoed", () => {
-  const wrapper = shallow(<Auth />);
-  wrapper
-    .find("input")
-    .first()
-    .simulate("change", {
-      target: { value: "emi@gmail.com" },
-    });
+test("user text is echoed", () => {
+  const email = "emi@gmail.com";
+  render(<Auth>{email}</Auth>);
 
-  expect(wrapper.find("input").first().props().value).toEqual("emi@gmail.com");
+  expect(screen.queryByText(email)).toBeNull();
+
+  fireEvent.change(screen.queryByTestId("email"));
+  screen.queryByTestId("email").innerHTML = email;
+  expect(screen.queryByTestId("email").innerHTML).toEqual(email);
 });
 
-xtest("login state", () => {
-  const wrapper = shallow(<Auth />);
+test("login state", () => {
+  const text = "Login";
+  render(<Auth />);
 
-  expect(wrapper.find("button").getElement().props.type).toEqual("submit");
-  expect(wrapper.find("button").getElement().props.children).toEqual("Login");
+  expect(screen.queryByTestId("submit-button").innerHTML).toEqual(text);
 });

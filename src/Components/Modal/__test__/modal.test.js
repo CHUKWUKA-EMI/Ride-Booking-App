@@ -1,27 +1,20 @@
 import React from "react";
-import { shallow } from "enzyme";
-import { cleanup } from "@testing-library/react";
+import { cleanup, render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 import Modal from "../modal";
-import ModalItems from "../Modal-Items/ModalItems";
 
 afterEach(cleanup);
 
-xtest("modal should display textLabels", () => {
-  const wrapper = shallow(<Modal />);
-  const textLabels = (
-    <span>
-      <label>Direction</label>
-      <label>Duration</label>
-      <label>Vehicle</label>
-      <label>Cost</label>
-    </span>
-  );
-  expect(wrapper.contains(textLabels)).toEqual(true);
+test("modal should display textLabels", () => {
+  render(<Modal />);
+
+  expect(screen.queryByTestId("routes")).toBeInTheDocument();
 });
 
-xtest("should contain items", () => {
-  const wrapper = shallow(<Modal />);
-  const title = <p>Available Routes</p>;
-  expect(wrapper.contains(title)).toEqual(true);
+test("should contain items", () => {
+  const title = "Available Routes";
+  render(<Modal>{title}</Modal>);
+
+  expect(screen.queryByText(title)).toBeInTheDocument();
 });

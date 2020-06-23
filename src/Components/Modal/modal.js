@@ -17,11 +17,11 @@ const Modal = (props) => {
   return (
     <div className="modal-class">
       <p>Available Routes</p>
-      <span>
-        <label>Direction</label>
-        <label>Duration</label>
-        <label>Vehicle</label>
-        <label>Cost</label>
+      <span data-testid="routes">
+        <label htmlFor="direction">Direction</label>
+        <label htmlFor="duration">Duration</label>
+        <label htmlFor="vehicle">Vehicle</label>
+        <label htmlFor="cost">Cost</label>
       </span>
       {routes.map((item) => {
         return (

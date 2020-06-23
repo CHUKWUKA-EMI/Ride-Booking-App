@@ -14,7 +14,11 @@ const CompletedModal = (props) => {
         <h3>Completed: {props.completed}</h3>
       </div>
       <div>
-        <button className="btn" onClick={props.onclose}>
+        <button
+          data-testid="completeModal-button"
+          className="btn"
+          onClick={props.onclose}
+        >
           Close
         </button>
       </div>

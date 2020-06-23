@@ -4,7 +4,7 @@ import "./ModalItems.css";
 const ModalItems = (props) => {
   return (
     <div key={props.id} className="modal-Items">
-      <span key={props.id} className="item-features">
+      <span data-testid="modalitems" key={props.id} className="item-features">
         <label style={{ marginLeft: "3%" }}>{props.direction}</label>
         <label>{props.duration}</label>
         <label>{props.vehicle}</label>
@@ -15,9 +15,18 @@ const ModalItems = (props) => {
         <label>
           {" "}
           select
-          <input type="checkbox" id={props.id} onClick={props.onCheck} />
+          <input
+            data-testid="modal-input"
+            type="checkbox"
+            id={props.id}
+            onClick={props.onCheck}
+          />
         </label>
-        <button className="btn" onClick={() => props.onSelect(props.id)}>
+        <button
+          data-testid="modal-button"
+          className="btn"
+          onClick={() => props.onSelect(props.id)}
+        >
           Book
         </button>
       </div>

@@ -115,7 +115,7 @@ const Bookings = (props) => {
         {successMsg ? (
           <h2 className="success">{successMsg}</h2>
         ) : (
-          <p>You can view your bookings below</p>
+          <p role="direct">You can view your bookings below</p>
         )}
         {!context.token && <Spinner />}
         {isLoading && <Spinner />}

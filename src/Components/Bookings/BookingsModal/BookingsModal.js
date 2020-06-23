@@ -28,10 +28,15 @@ const BookingsModal = (props) => {
         <label>Completed: {props.completed}</label>
       </span>
       <div className="booking-actions">
-        <button className="btn" onClick={() => props.onEdit(props.bookingId)}>
+        <button
+          data-testid="edit-button"
+          className="btn"
+          onClick={() => props.onEdit(props.bookingId)}
+        >
           Edit
         </button>
         <button
+          data-testid="delete-button"
           style={{ backgroundColor: "red" }}
           className="btn"
           onClick={() => props.onDelete(props.bookingId)}
@@ -40,7 +45,11 @@ const BookingsModal = (props) => {
         </button>
       </div>
       <div className="back-button">
-        <button className="btn" onClick={props.onCancel}>
+        <button
+          data-testid="close-button"
+          className="btn"
+          onClick={props.onCancel}
+        >
           Back
         </button>
       </div>
