@@ -120,7 +120,11 @@ const Auth = (props) => {
           {!isLogIn
             ? "Already have an account?"
             : "You don't have an account yet?"}{" "}
-          <a data-testid="auth-link" onClick={(e) => setIsLogIn(!isLogIn)}>
+          <a
+            data-testid="auth-link"
+            href="/auth"
+            onClick={(e) => setIsLogIn(!isLogIn)}
+          >
             {!isLogIn ? "Login" : "Sign Up"}
           </a>
         </p>

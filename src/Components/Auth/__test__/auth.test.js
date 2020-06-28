@@ -13,7 +13,7 @@ test("when the form is submitted without data, a message is shown", () => {
   expect(screen.queryByText(text)).toBeNull();
 
   fireEvent.submit(screen.queryByTestId("auth-form"));
-  expect(screen.getByText(text)).toBeInTheDocument;
+  expect(screen.getByText(text)).toBeInTheDocument();
 });
 
 test("user text is echoed", () => {
