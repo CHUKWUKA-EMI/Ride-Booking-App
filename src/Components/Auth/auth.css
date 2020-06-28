@@ -138,3 +138,12 @@
     margin-left: 35rem;
   }
 }
+
+.signup-link {
+  color: #0a36f7;
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}

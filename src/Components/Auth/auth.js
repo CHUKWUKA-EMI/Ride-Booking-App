@@ -7,7 +7,7 @@ const Auth = (props) => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [isLogIn, setIsLogIn] = useState(true);
+  const [isLoggedIn, setIsLogIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
@@ -31,7 +31,7 @@ const Auth = (props) => {
 		`,
     };
 
-    if (!isLogIn) {
+    if (!isLoggedIn) {
       requestBody = {
         query: `
 		   mutation{
@@ -48,7 +48,7 @@ const Auth = (props) => {
 
     makeRequest({ data: requestBody })
       .then((resData) => {
-        if (isLogIn) {
+        if (isLoggedIn) {
           context.login(
             resData.data.login.token,
             resData.data.login.userId,
@@ -65,7 +65,7 @@ const Auth = (props) => {
   };
   return (
     <div className="form-class">
-      <h1>{isLogIn ? "Login" : "Sign Up"}</h1>
+      <h1>{isLoggedIn ? "Login" : "Sign Up"}</h1>
       <form
         data-testid="auth-form"
         onSubmit={(e) => {
@@ -83,7 +83,7 @@ const Auth = (props) => {
           </h3>
         )}
 
-        {!isLogIn && (
+        {!isLoggedIn && (
           <input
             type="text"
             id="username"
@@ -114,19 +114,19 @@ const Auth = (props) => {
         />
         <br />
         <button data-testid="submit-button" type="submit">
-          {isLogIn ? "Login" : "Sign Up"}
+          {isLoggedIn ? "Login" : "Sign Up"}
         </button>
         <p>
-          {!isLogIn
+          {!isLoggedIn
             ? "Already have an account?"
             : "You don't have an account yet?"}{" "}
-          <a
+          <span
+            className="signup-link"
             data-testid="auth-link"
-            href="/auth"
-            onClick={(e) => setIsLogIn(!isLogIn)}
+            onClick={(e) => setIsLogIn(!isLoggedIn)}
           >
-            {!isLogIn ? "Login" : "Sign Up"}
-          </a>
+            {!isLoggedIn ? "Login" : "Sign Up"}
+          </span>
         </p>
       </form>
     </div>

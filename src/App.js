@@ -9,7 +9,7 @@ import PageNotFound from "./Components/404ErrorPage/404ErrorPage";
 import AuthContext from "./Components/Context/context";
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("token") || null);
+  const [token, setToken] = useState(JSON.parse(localStorage.getItem("token")));
   const [userId, setUserId] = useState(null);
 
   const login = (token, userId, tokenExpiration) => {
@@ -22,6 +22,7 @@ function App() {
     setUserId(null);
     localStorage.removeItem("token", null);
   };
+
   React.useEffect(() => {
     localStorage.setItem("token", token);
   }, [token]);
@@ -63,6 +64,7 @@ function App() {
             <PrivateRoute path="/bookings" component={Bookings} />
             {token && <Redirect from="/auth" to="/trips" exact />}
             <Route path="/trips" component={Trips} />
+            where
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </AuthContext.Provider>
