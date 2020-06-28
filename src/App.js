@@ -64,7 +64,6 @@ function App() {
             <PrivateRoute path="/bookings" component={Bookings} />
             {token && <Redirect from="/auth" to="/trips" exact />}
             <Route path="/trips" component={Trips} />
-            where
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </AuthContext.Provider>
