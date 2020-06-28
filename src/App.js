@@ -9,7 +9,7 @@ import PageNotFound from "./Components/404ErrorPage/404ErrorPage";
 import AuthContext from "./Components/Context/context";
 
 function App() {
-  const [token, setToken] = useState(JSON.parse(localStorage.getItem("token")));
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [userId, setUserId] = useState(null);
 
   const login = (token, userId, tokenExpiration) => {
@@ -18,9 +18,9 @@ function App() {
   };
 
   const logout = () => {
-    setToken(null);
-    setUserId(null);
-    localStorage.removeItem("token", null);
+    setToken("");
+    setUserId("");
+    localStorage.removeItem("token", "");
   };
 
   React.useEffect(() => {
