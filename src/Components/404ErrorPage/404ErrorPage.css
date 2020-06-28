@@ -7,10 +7,15 @@ body {
   background-color: #c4c4c4;
 }
 
+.error-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 .error-page h2 {
-  margin-top: 12rem;
+  margin-top: 8rem;
   color: #25ce25;
-  margin-left: 8rem;
   animation-name: justice;
   animation-duration: 8s;
   animation-delay: 4s;
@@ -19,17 +24,12 @@ body {
   font-size: 55px;
 }
 .error-page h3 {
-  margin-left: 5rem;
   font-family: cursive;
-
   font-size: 25px;
   color: #292727;
 }
 .error-page p {
-  margin-left: 8rem;
-  list-style: none;
   font-size: 20px;
-  align-items: center;
 }
 .error-page p a {
   text-decoration: underline;
@@ -40,18 +40,14 @@ body {
 
 @media (min-width: 1440px) {
   .error-page h2 {
-    margin-left: 40rem;
     font-size: 100px;
   }
   .error-page h3 {
-    margin-top: 1rem;
-    margin-left: 35rem;
     font-style: italic;
     height: 40px;
     font-size: 40px;
   }
   .error-page p {
-    margin-left: 38rem;
     font-size: 25px;
   }
   .error-page p a {
