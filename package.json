@@ -50,6 +50,5 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  },
-  "homepage": "./public/index.html"
+  }
 }

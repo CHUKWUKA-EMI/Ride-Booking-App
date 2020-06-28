@@ -21,5 +21,5 @@ test("that the children are mounted", () => {
   render(<Bookings />);
   render(<Spinner />);
 
-  expect(screen.queryByRole("direct")).toBeInTheDocument();
+  expect(screen.getByTestId("direct")).toBeInTheDocument();
 });

@@ -26,6 +26,7 @@ const Modal = (props) => {
       {routes.map((item) => {
         return (
           <ModalItems
+            key={item.id}
             id={item.id}
             direction={item.direction}
             duration={item.duration}

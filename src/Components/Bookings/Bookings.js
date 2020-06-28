@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import "./Bookings.css";
 import BookingsModal from "./BookingsModal/BookingsModal";
 import Backdrop from "./Backdrop/Backdrop";
@@ -23,10 +23,49 @@ const Bookings = (props) => {
   const [successMsg, setSuccessMsg] = useState("");
   const context = useContext(Authcontext);
 
+  const fetchBookings = useCallback(() => {
+    const requestBody = {
+      query: `
+        query{
+          bookings{
+            id
+            user_id
+            trip
+            completed
+          }
+        }
+      `,
+    };
+    makeRequest({
+      data: requestBody,
+      token: context.token,
+    })
+      .then((resData) => {
+        setBookings(resData.data.bookings);
+      })
+      .catch((err) => {
+        setSuccessMsg(err.message);
+      });
+  }, [context.token]);
+
+  const fetchCompleteTrips = useCallback(
+    (bookingId) => {
+      const completedTrips = getCompletedTrips({ completed: true });
+
+      makeRequest({ data: completedTrips, token: context.token }).then(
+        (resData) => {
+          setCompletedTrip(resData.data.completedTrips);
+          setIsloading(false);
+        }
+      );
+    },
+    [context.token]
+  );
+
   useEffect(() => {
     fetchBookings();
     fetchCompleteTrips();
-  }, []);
+  }, [fetchBookings, fetchCompleteTrips]);
 
   const viewCompleteTrips = (bookingId) => {
     setCompleteView(true);
@@ -50,30 +89,6 @@ const Bookings = (props) => {
     setSelectedBooking(selected);
   };
 
-  const fetchBookings = () => {
-    const requestBody = {
-      query: `
-			  query{
-					bookings{
-						id
-						user_id
-						trip
-						completed
-					}
-        }
-			`,
-    };
-    makeRequest({
-      data: requestBody,
-      token: context.token,
-    })
-      .then((resData) => {
-        setBookings(resData.data.bookings);
-      })
-      .catch((err) => {
-        setSuccessMsg(err.message);
-      });
-  };
   const deleteHandler = (bookingId) => {
     const bookingdata = deleteBooking({ bookingId: selectedBooking.id });
 
@@ -96,17 +111,6 @@ const Bookings = (props) => {
     });
   };
 
-  const fetchCompleteTrips = (bookingId) => {
-    const completedTrips = getCompletedTrips({ completed: true });
-
-    makeRequest({ data: completedTrips, token: context.token }).then(
-      (resData) => {
-        setCompletedTrip(resData.data.completedTrips);
-        setIsloading(false);
-      }
-    );
-  };
-
   return (
     <React.Fragment>
       {(modalViewing || completeView) && <Backdrop />}
@@ -115,7 +119,7 @@ const Bookings = (props) => {
         {successMsg ? (
           <h2 className="success">{successMsg}</h2>
         ) : (
-          <p role="direct">You can view your bookings below</p>
+          <p data-redirect-id="direct">You can view your bookings below</p>
         )}
         {!context.token && <Spinner />}
         {isLoading && <Spinner />}
