@@ -8,11 +8,11 @@ const NavBar = (props) => {
   const context = useContext(AuthContext);
   return (
     <div className="Nav">
-      <h1>JusticeRides</h1>
+      <h1 data-testid="header">JusticeRides</h1>
       <div style={{ width: "90px" }}>
         <ul>
           {!context.token && (
-            <li>
+            <li data-testid="link">
               <NavLink to="/auth">Authentication</NavLink>
             </li>
           )}

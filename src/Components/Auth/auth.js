@@ -67,6 +67,7 @@ const Auth = (props) => {
     <div className="form-class">
       <h1>{isLogIn ? "Login" : "Sign Up"}</h1>
       <form
+        data-testid="auth-form"
         onSubmit={(e) => {
           e.preventDefault();
           submitHandler();
@@ -96,6 +97,7 @@ const Auth = (props) => {
         <input
           type="email"
           id="email"
+          data-testid="email"
           name="email"
           value={userEmail}
           placeholder="Email"
@@ -111,12 +113,14 @@ const Auth = (props) => {
           onChange={(e) => setUserPassword(e.target.value)}
         />
         <br />
-        <button type="submit">{isLogIn ? "Login" : "Sign Up"}</button>
+        <button data-testid="submit-button" type="submit">
+          {isLogIn ? "Login" : "Sign Up"}
+        </button>
         <p>
           {!isLogIn
             ? "Already have an account?"
             : "You don't have an account yet?"}{" "}
-          <a onClick={(e) => setIsLogIn(!isLogIn)}>
+          <a data-testid="auth-link" onClick={(e) => setIsLogIn(!isLogIn)}>
             {!isLogIn ? "Login" : "Sign Up"}
           </a>
         </p>
